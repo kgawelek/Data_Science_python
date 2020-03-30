@@ -117,3 +117,14 @@ list_salary_sorted = sorted(list(salary))
 print(list_salary_sorted[:5])
 salary.name = "Salary of a person"
 print(salary.name)
+
+salary = pd.read_csv("survey_results_public.csv", usecols=["Salary"], squeeze=True)
+print(salary.sort_values(ascending=False).head())
+salary.sort_values(ascending=False, inplace=True)
+print(salary.head())
+print(salary.sort_index(ascending=False).head())
+
+max_salary = salary.sort_values(ascending=False).head(100)
+min_salary = salary.sort_values().head(100)
+print("Max salary mean = ", max_salary.mean())
+print("Min salary mean = ", min_salary.mean())
