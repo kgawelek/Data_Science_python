@@ -50,7 +50,7 @@ citypop = pd.Series(population, cities)
 #print(citypop.index)
 #print(citypop.keys())
 #print(citypop.values)
-'''
+
 age = ['do 6', '7 - 14', '15 - 17', '18 - 24', '25 - 39', '40 - 59', '60+']
 num_of_accidents = [14, 334, 312, 5823, 9491, 7486, 4343]
 incidents = pd.Series(num_of_accidents, age)
@@ -130,6 +130,7 @@ min_salary = salary.sort_values().head(100)
 #print("Min salary mean = ", min_salary.mean())
 
 
+
 countries = pd.read_csv("survey_results_public.csv", usecols=["Country"], squeeze=True)
 countries.dropna(inplace=True)
 #print(countries.head())
@@ -138,5 +139,15 @@ countries.dropna(inplace=True)
 company_size = pd.read_csv("survey_results_public.csv", usecols=["CompanySize"], squeeze=True)
 company_size.dropna(inplace=True)
 company_size.sort_values(inplace=True)
-company_size.reset_index(drop=True,inplace=True)
-print(company_size.head())
+company_size.reset_index(drop=True, inplace=True)
+#print(company_size.head())
+'''
+country_symbols = ['PL', 'ES', 'FR', 'IT', 'FI', 'SE', 'NO']
+country_names = ['Poland', 'Spain', 'France', 'Italy', 'Finland', 'Sweden', 'Norway']
+country_series = pd.Series(country_names, country_symbols)
+print(country_series.iloc[1])
+nordic = ['FI', 'SE', 'NO']
+print(country_series[nordic])
+to_find = ['PL', 'ES', 'EN']
+print(country_series.reindex(to_find))
+print(country_series.loc[country_series.index.intersection(to_find)])
